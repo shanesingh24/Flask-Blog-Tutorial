@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+  <article class="single-post">
+    <h2>{{ post.title }}</h2>
+    <small>{{ post.created }}</small>
+    <p style="white-space: pre-wrap">{{ post.body }}</p>
+  </article>
+
+  <p>
+    <a class="btn" href="{{ url_for('edit', post_id=post.id) }}">Edit</a>
+  </p>
+
+  <form action="{{ url_for('delete', post_id=post.id) }}" method="post" onsubmit="return confirm('Delete this post?');">
+    <button class="btn danger" type="submit">Delete</button>
+  </form>
+{% endblock %}

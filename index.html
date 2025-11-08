@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}All Posts{% endblock %}
+{% block content %}
+  {% if posts %}
+    <ul class="post-list">
+      {% for p in posts %}
+        <li class="post-item">
+          <h2><a href="{{ url_for('post_detail', post_id=p.id) }}">{{ p.title }}</a></h2>
+          <small>{{ p.created }}</small>
+          <p>{{ p.body[:200] }}{% if p.body|length > 200 %}…{% endif %}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No posts yet. <a href="{{ url_for('create') }}">Create one</a>!</p>
+  {% endif %}
+{% endblock %}

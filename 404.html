@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Not Found{% endblock %}
+{% block content %}
+  <h2>404 — Not Found</h2>
+  <p>That post doesn’t exist. <a href="{{ url_for('index') }}">Go back</a>.</p>
+{% endblock %}
